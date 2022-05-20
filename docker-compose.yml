@@ -7,7 +7,7 @@ services:
     dns: 172.31.0.100
     build:
       context: .
-      dockerfile: rest-api/Dockerfile
+      dockerfile: payload-rest/Dockerfile
     ports:
       - "2020:8080"
     networks:
