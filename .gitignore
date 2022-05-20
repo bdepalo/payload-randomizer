@@ -1,0 +1,16 @@
+# Directories
+.gradle/
+.idea/
+build/
+dist/
+node_modules/
+
+# Cache Files
+.eslintcache
+.npm
+*.tsbuildinfo
+
+# Logs
+*.log
+logs
+npm-debug.log*

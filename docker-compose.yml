@@ -1,0 +1,31 @@
+version: "3.3"
+
+services:
+
+  rest-api:
+    container_name: payload_rest
+    dns: 172.31.0.100
+    build:
+      context: .
+      dockerfile: rest-api/Dockerfile
+    ports:
+      - "2020:8080"
+    networks:
+      pihole_backend:
+        ipv4_address: 172.31.0.11
+
+#  frontend:
+#    container_name: smurf_frontend
+#    dns: 172.31.0.100
+#    build:
+#      context: frontend
+#      dockerfile: Dockerfile
+#    ports:
+#      - "8008:80"
+#    networks:
+#      pihole_backend:
+#        ipv4_address: 172.31.0.3
+
+networks:
+  pihole_backend:
+    external: true
