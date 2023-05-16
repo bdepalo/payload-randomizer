@@ -32,7 +32,7 @@ jobs:
       - name: Build and Push Frontend Docker image
         uses: docker/build-push-action@v3
         with:
-          context: ./payload-rest
+          context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
