@@ -1,0 +1,9 @@
+.github
+.gradle
+.idea
+build
+.dockerignore
+.gitignore
+docker-compose.yml
+gradlew.bat
+LICENSE
