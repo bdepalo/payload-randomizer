@@ -21,16 +21,18 @@ public class PayloadRandomizerController {
     private PayloadRandomizer randomizer;
 
     @GetMapping("/airframes")
-    public List<String> getAirframes() {
-        return airframeService.getAirframes();
+    public List<AirframeDto> getAirframes() {
+        return airframeService.getAirframes().stream()
+                .map(x -> new AirframeDto(x.id(), x.name()))
+                .collect(Collectors.toList());
     }
 
-    @GetMapping("/random/{airframe}")
+    @GetMapping("/random/{id}")
     public ResponseEntity<Output> getRandomPayload(
-            @PathVariable String airframe,
+            @PathVariable String id,
             @RequestParam(name = "payload", required = false, defaultValue = "100.0") double maxPayloadPercent
     ) {
-        return airframeService.getAirframe(airframe)
+        return airframeService.getAirframe(id)
                 .map(x -> randomizer.randomizePayload(x, maxPayloadPercent))
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());

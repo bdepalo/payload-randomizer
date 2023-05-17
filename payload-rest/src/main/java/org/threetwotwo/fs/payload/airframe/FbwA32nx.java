@@ -8,6 +8,11 @@ public class FbwA32nx implements Airframe {
     }
 
     @Override
+    public String id() {
+        return "FBWA32NX";
+    }
+
+    @Override
     public int maxZfw() {
         return 141757;
     }

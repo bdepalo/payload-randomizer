@@ -8,6 +8,11 @@ public class FenixA320 implements Airframe {
     }
 
     @Override
+    public String id() {
+        return "FenixA320";
+    }
+
+    @Override
     public int maxZfw() {
         return 134482;
     }

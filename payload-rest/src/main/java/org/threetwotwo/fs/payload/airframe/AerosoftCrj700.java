@@ -8,6 +8,11 @@ public class AerosoftCrj700 implements Airframe {
     }
 
     @Override
+    public String id() {
+        return "AerosoftCRJ7";
+    }
+
+    @Override
     public int maxZfw() {
         return 62300;
     }
