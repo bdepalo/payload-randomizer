@@ -1,10 +1,7 @@
 package org.threetwotwo.fs.payload;
 
 import org.springframework.stereotype.Service;
-import org.threetwotwo.fs.payload.airframe.AerosoftCrj700;
 import org.threetwotwo.fs.payload.airframe.Airframe;
-import org.threetwotwo.fs.payload.airframe.FbwA32nx;
-import org.threetwotwo.fs.payload.airframe.FenixA320;
 
 import java.util.Random;
 
