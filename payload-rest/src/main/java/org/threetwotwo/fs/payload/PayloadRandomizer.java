@@ -1,5 +1,7 @@
 package org.threetwotwo.fs.payload;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.threetwotwo.fs.payload.airframe.Airframe;
 
@@ -9,6 +11,7 @@ import java.util.Random;
 public class PayloadRandomizer {
 
     private static final Random random = new Random();
+    private static Logger LOG = LoggerFactory.getLogger(PayloadRandomizer.class);
 
     public Output randomizePayload(Airframe airframe, double maxPayloadPercent) {
 
@@ -19,6 +22,8 @@ public class PayloadRandomizer {
         double maxPayload = airframe.maxPayload();
 
         double operationalMaxZfw = Math.min(maxZfw, emptyWeight + maxPayload * maxPayloadPercent / 100.0);
+
+        LOG.info("Max ZFW {}", operationalMaxZfw);
 
         int actualZfw = -1;
         int paxNum = 0;
@@ -72,7 +77,9 @@ public class PayloadRandomizer {
             // FINAL ZFW CALCULATION
             ////////////////////////////////////////////////////////
             actualZfw = (int) Math.round(emptyWeight + 180 * paxNum + totalCargo);
+            LOG.info("Attempted actual pax {} ZFW {}", paxNum, actualZfw);
         }
+        LOG.info("Final ZFW {}", actualZfw);
 
         return new Output(paxNum, actualZfw);
     }
